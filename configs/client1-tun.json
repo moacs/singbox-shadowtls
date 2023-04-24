@@ -31,7 +31,7 @@
     {
       "type": "shadowsocks",
       "method": "2022-blake3-aes-128-gcm",
-      "password": "填写自定义密码",
+      "password": "填写自定义密码1",
       "detour": "shadowtls-out",
       "multiplex": {
         "enabled": true,
@@ -46,7 +46,7 @@
       "server_port": 443,
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com"
+        "server_name": "www.ebay.com"
       }
     },
     {
