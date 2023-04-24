@@ -19,7 +19,12 @@ yellow(){
     echo -e "\033[33m\033[01m$1\033[0m"
 }
 
-ps=$(openssl rand -base64 16)
+ps1=$(openssl rand -base64 16)
+ps2=$(openssl rand -base64 16)
+ps3=$(openssl rand -base64 16)
+ps4=$(openssl rand -base64 16)
+ps5=$(openssl rand -base64 16)
+
 
 # 判断系统及定义系统安装依赖方式
 REGEX=("debian" "ubuntu" "centos|red hat|kernel|oracle linux|alma|rocky" "'amazon linux'" "fedora")
@@ -75,8 +80,16 @@ install_singbox(){
     wget --no-check-certificate -O /etc/sing-box/config.json https://raw.githubusercontent.com/lanhebe/singbox-shadowtls/main/configs/server-config.json
     
     mkdir /root/sing-box
-    wget --no-check-certificate -O /root/sing-box/client-sockshttp.json https://raw.githubusercontent.com/lanhebe/singbox-shadowtls/main/configs/client-sockshttp.json
-    wget --no-check-certificate -O /root/sing-box/client-tun.json https://raw.githubusercontent.com/lanhebe/singbox-shadowtls/main/configs/client-tun.json
+    wget --no-check-certificate -O /root/sing-box/client-sockshttp.json https://raw.githubusercontent.com/lanhebe/singbox-shadowtls/main/configs/client1-sockshttp.json
+    wget --no-check-certificate -O /root/sing-box/client-sockshttp.json https://raw.githubusercontent.com/lanhebe/singbox-shadowtls/main/configs/client2-sockshttp.json
+    wget --no-check-certificate -O /root/sing-box/client-sockshttp.json https://raw.githubusercontent.com/lanhebe/singbox-shadowtls/main/configs/client3-sockshttp.json
+    wget --no-check-certificate -O /root/sing-box/client-sockshttp.json https://raw.githubusercontent.com/lanhebe/singbox-shadowtls/main/configs/client4-sockshttp.json
+    wget --no-check-certificate -O /root/sing-box/client-sockshttp.json https://raw.githubusercontent.com/lanhebe/singbox-shadowtls/main/configs/client5-sockshttp.json
+    wget --no-check-certificate -O /root/sing-box/client-tun.json https://raw.githubusercontent.com/lanhebe/singbox-shadowtls/main/configs/client1-tun.json
+    wget --no-check-certificate -O /root/sing-box/client-tun.json https://raw.githubusercontent.com/lanhebe/singbox-shadowtls/main/configs/client2-tun.json
+    wget --no-check-certificate -O /root/sing-box/client-tun.json https://raw.githubusercontent.com/lanhebe/singbox-shadowtls/main/configs/client3-tun.json
+    wget --no-check-certificate -O /root/sing-box/client-tun.json https://raw.githubusercontent.com/lanhebe/singbox-shadowtls/main/configs/client4-tun.json
+    wget --no-check-certificate -O /root/sing-box/client-tun.json https://raw.githubusercontent.com/lanhebe/singbox-shadowtls/main/configs/client5-tun.json
     
     wgcfv6status=$(curl -s6m8 https://www.cloudflare.com/cdn-cgi/trace -k | grep warp | cut -d= -f2) 
     wgcfv4status=$(curl -s4m8 https://www.cloudflare.com/cdn-cgi/trace -k | grep warp | cut -d= -f2)
@@ -93,16 +106,46 @@ install_singbox(){
     fi
     
     if [[ -n $v4 ]]; then
-        sed -i "s/填写服务器ip地址/${v4}/g" /root/sing-box/client-sockshttp.json
-        sed -i "s/填写服务器ip地址/${v4}/g" /root/sing-box/client-tun.json
+        sed -i "s/填写服务器ip地址/${v4}/g" /root/sing-box/client1-sockshttp.json
+        sed -i "s/填写服务器ip地址/${v4}/g" /root/sing-box/client2-sockshttp.json
+        sed -i "s/填写服务器ip地址/${v4}/g" /root/sing-box/client3-sockshttp.json
+        sed -i "s/填写服务器ip地址/${v4}/g" /root/sing-box/client4-sockshttp.json
+        sed -i "s/填写服务器ip地址/${v4}/g" /root/sing-box/client5-sockshttp.json
+        sed -i "s/填写服务器ip地址/${v4}/g" /root/sing-box/client1-tun.json
+        sed -i "s/填写服务器ip地址/${v4}/g" /root/sing-box/client2-tun.json
+        sed -i "s/填写服务器ip地址/${v4}/g" /root/sing-box/client3-tun.json
+        sed -i "s/填写服务器ip地址/${v4}/g" /root/sing-box/client4-tun.json
+        sed -i "s/填写服务器ip地址/${v4}/g" /root/sing-box/client5-tun.json
     elif [[ -n $v6 ]]; then
-        sed -i "s/填写服务器ip地址/[${v6}]/g" /root/sing-box/client-sockshttp.json
-        sed -i "s/填写服务器ip地址/[${v6}]/g" /root/sing-box/client-tun.json
+        sed -i "s/填写服务器ip地址/[${v6}]/g" /root/sing-box/client1-sockshttp.json
+        sed -i "s/填写服务器ip地址/[${v6}]/g" /root/sing-box/client2-sockshttp.json
+        sed -i "s/填写服务器ip地址/[${v6}]/g" /root/sing-box/client3-sockshttp.json
+        sed -i "s/填写服务器ip地址/[${v6}]/g" /root/sing-box/client4-sockshttp.json
+        sed -i "s/填写服务器ip地址/[${v6}]/g" /root/sing-box/client5-sockshttp.json
+        sed -i "s/填写服务器ip地址/[${v6}]/g" /root/sing-box/client1-tun.json
+        sed -i "s/填写服务器ip地址/[${v6}]/g" /root/sing-box/client2-tun.json
+        sed -i "s/填写服务器ip地址/[${v6}]/g" /root/sing-box/client3-tun.json
+        sed -i "s/填写服务器ip地址/[${v6}]/g" /root/sing-box/client4-tun.json
+        sed -i "s/填写服务器ip地址/[${v6}]/g" /root/sing-box/client5-tun.json
     fi
     
-    sed -i "s/填写自定义密码/${ps}/g" /etc/sing-box/config.json
-    sed -i "s/填写自定义密码/${ps}/g" /root/sing-box/client-sockshttp.json
-    sed -i "s/填写自定义密码/${ps}/g" /root/sing-box/client-tun.json
+    sed -i "s/填写自定义密码1/${ps1}/g" /etc/sing-box/config.json
+    sed -i "s/填写自定义密码2/${ps2}/g" /etc/sing-box/config.json
+    sed -i "s/填写自定义密码3/${ps3}/g" /etc/sing-box/config.json
+    sed -i "s/填写自定义密码4/${ps4}/g" /etc/sing-box/config.json
+    sed -i "s/填写自定义密码5/${ps5}/g" /etc/sing-box/config.json
+    
+    sed -i "s/填写自定义密码1/${ps1}/g" /root/sing-box/client1-sockshttp.json
+    sed -i "s/填写自定义密码2/${ps2}/g" /root/sing-box/client2-sockshttp.json
+    sed -i "s/填写自定义密码3/${ps3}/g" /root/sing-box/client3-sockshttp.json
+    sed -i "s/填写自定义密码4/${ps4}/g" /root/sing-box/client4-sockshttp.json
+    sed -i "s/填写自定义密码5/${ps5}/g" /root/sing-box/client5-sockshttp.json
+    
+    sed -i "s/填写自定义密码1/${ps1}/g" /root/sing-box/client1-tun.json
+    sed -i "s/填写自定义密码2/${ps2}/g" /root/sing-box/client2-tun.json
+    sed -i "s/填写自定义密码3/${ps3}/g" /root/sing-box/client3-tun.json
+    sed -i "s/填写自定义密码4/${ps4}/g" /root/sing-box/client4-tun.json
+    sed -i "s/填写自定义密码5/${ps5}/g" /root/sing-box/client5-tun.json
 
     
     systemctl start sing-box
@@ -112,8 +155,8 @@ install_singbox(){
         red "Sing-box 安装失败"
     elif [[ -n $(service sing-box status 2>/dev/null | grep "active") ]]; then
         green "Sing-box 安装成功"
-        yellow "客户端Socks / HTTP代理模式配置文件已保存到 /root/sing-box/client-sockshttp.json 请自行下载到本地使用"
-        yellow "客户端TUN模式配置文件已保存到 /root/sing-box/client-tun.json 请自行下载到本地使用"
+        yellow "客户端Socks / HTTP代理模式配置文件已保存到 /root/sing-box/client(1-5)-sockshttp.json 请自行根据用户数量进行分配下载到本地使用"
+        yellow "客户端TUN模式配置文件已保存到 /root/sing-box/client(1-5)-tun.json 请自行根据用户数量进行分配下载到本地使用"
     fi
 }
 
@@ -144,7 +187,7 @@ restart_singbox(){
 menu(){
     clear
     echo "#############################################################"
-    echo -e "#              ${RED} Sing-box+ShadowTLS  一键管理脚本${PLAIN}            #"
+    echo -e "#              ${RED} Sing-box+ShadowTLS五人共用  一键管理脚本${PLAIN}            #"
     echo -e "# ${GREEN}作者${PLAIN}: MisakaNo & Littleyu修改                                  #"
     echo -e "# ${YELLOW}脚本适用于"Ubuntu" "CentOS" "CentOS" "Fedora"    #"
     echo -e "# ${GREEN}博客${PLAIN}: https://www.yugogo.xyz                            #"
