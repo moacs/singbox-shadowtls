@@ -187,7 +187,7 @@ restart_singbox(){
 menu(){
     clear
     echo "#############################################################"
-    echo -e "#              ${RED} Sing-box+ShadowTLS五人共用  一键管理脚本${PLAIN}            #"
+    echo -e "#              ${RED} Sing-box+ShadowTLS  五人共用一键管理脚本${PLAIN}            #"
     echo -e "# ${GREEN}作者${PLAIN}: MisakaNo & Littleyu修改                                  #"
     echo -e "# ${YELLOW}脚本适用于"Ubuntu" "CentOS" "CentOS" "Fedora"    #"
     echo -e "# ${GREEN}博客${PLAIN}: https://www.yugogo.xyz                            #"
