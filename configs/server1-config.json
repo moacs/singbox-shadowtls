@@ -1,0 +1,45 @@
+{
+  "inbounds": [
+    {
+      "type": "shadowtls",
+      "listen": "::",
+      "listen_port": 443,
+      "version": 3,
+      "users": [
+        {
+          "name": "yugogo1",
+          "password": "填写自定义密码A"
+        },
+        {
+          "name": "yugogo2",
+          "password": "填写自定义密码B"
+        },
+        {
+          "name": "yugogo3",
+          "password": "填写自定义密码C"
+        },
+        {
+          "name": "yugogo4",
+          "password": "填写自定义密码D"
+        },
+        {
+          "name": "yugogo5",
+          "password": "填写自定义密码E"
+        }
+      ],
+      "handshake": {
+        "server": "www.ebay.com",
+        "server_port": 443
+      },
+      "detour": "shadowsocks-in"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "shadowsocks-in",
+      "listen": "127.0.0.1",
+      "network": "tcp",
+      "method": "2022-blake3-aes-128-gcm",
+      "password": "PAJdSIxI6tZdR0UqMtBaLQ=="
+    }
+  ]
+}
