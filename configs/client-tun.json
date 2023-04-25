@@ -31,7 +31,7 @@
     {
       "type": "shadowsocks",
       "method": "2022-blake3-aes-128-gcm",
-      "password": "填写自定义密码1",
+      "password": "PAJdSIxI6tZdR0UqMtBaLQ==",
       "detour": "shadowtls-out",
       "multiplex": {
         "enabled": true,
@@ -44,6 +44,8 @@
       "tag": "shadowtls-out",
       "server": "填写服务器ip地址",
       "server_port": 443,
+      "password": "填写自定义密码",
+       "version": 3,
       "tls": {
         "enabled": true,
         "server_name": "www.ebay.com"
@@ -69,13 +71,13 @@
         "outbound": "dns-out"
       },
       {
-        "geosite": "category-ads-all",
-        "outbound": "block"
-      },
-      {
         "geosite": "cn",
         "geoip": "cn",
         "outbound": "direct"
+      },
+      {
+        "geosite": "category-ads-all",
+        "outbound": "block"
       }
     ],
     "auto_detect_interface": true
