@@ -13,18 +13,6 @@
         {
           "name": "yugogo2",
           "password": "填写自定义密码2"
-        },
-        {
-          "name": "yugogo3",
-          "password": "填写自定义密码3"
-        },  
-        {
-          "name": "yugogo4",
-          "password": "填写自定义密码4"
-        },
-        {
-          "name": "yugogo5",
-          "password": "填写自定义密码5"
         }
       ],
       "handshake": {
