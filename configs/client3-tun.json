@@ -58,7 +58,7 @@
       "tag": "shadowtls-out",
       "server": "填写服务器ip地址",
       "server_port": 443,
-      "password": "填写自定义密码C",
+      "password": "填写自定义密码",
        "version": 3,
       "tls": {
         "enabled": true,
