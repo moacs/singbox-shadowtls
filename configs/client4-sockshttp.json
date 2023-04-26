@@ -25,7 +25,7 @@
       "server": "填写服务器ip地址",
       "server_port": 443,
       "version": 3,
-      "password": "填写自定义密码D",
+      "password": "填写自定义密码",
       "tls": {
         "enabled": true,
         "server_name": "www.ebay.com"
