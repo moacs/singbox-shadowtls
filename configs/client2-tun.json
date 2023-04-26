@@ -9,9 +9,22 @@
         "tag": "local",
         "address": "223.5.5.5",
         "detour": "direct"
+      },
+      {
+        "tag": "block",
+        "address": "rcode://success"
       }
     ],
     "rules": [
+      {
+        "geosite": "category-ads-all",
+        "server": "block",
+        "disable_cache": true
+      },
+      {
+        "outbound": "any",
+        "server": "local"
+      },
       {
         "geosite": "cn",
         "server": "local"
@@ -24,6 +37,7 @@
       "type": "tun",
       "inet4_address": "172.19.0.1/30",
       "auto_route": true,
+      "strict_route": false,
       "sniff": true
     }
   ],
@@ -66,13 +80,16 @@
   ],
   "route": {
     "rules": [
-      {
+     {
         "protocol": "dns",
         "outbound": "dns-out"
       },
       {
         "geosite": "cn",
-        "geoip": "cn",
+        "geoip": [
+          "private",
+          "cn"
+        ],
         "outbound": "direct"
       },
       {
