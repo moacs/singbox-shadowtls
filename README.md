@@ -6,7 +6,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/lanhebe/singbox
 
 ## 安装详细教程：
 
-https://#
+https://yugogo.xyz/?p=1935
 
 ## Youtube频道及交流群
 
