@@ -3,6 +3,8 @@
 ```shell
 wget -N --no-check-certificate https://raw.githubusercontent.com/lanhebe/singbox-shadowtls/main/sing-box.sh && chmod +x sing-box.sh && bash sing-box.sh
 ```
+另外，如果想搭建5人共用Sing-box小机场，请使用以下一键脚本安装。
+wget -N --no-check-certificate https://raw.githubusercontent.com/lanhebe/singbox-shadowtls/main/mps_Sing-box.sh && chmod +x mps_Sing-box.sh && bash mps_Sing-box.sh
 
 ## 安装详细教程：
 
