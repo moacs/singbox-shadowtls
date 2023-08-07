@@ -8,23 +8,23 @@
       "users": [
         {
           "name": "yugogo1",
-          "password": "AA"
+          "password": "填写自定义密码A"
         },
         {
           "name": "yugogo2",
-          "password": "BB"
+          "password": "填写自定义密码B"
         },
         {
           "name": "yugogo3",
-          "password": "CC"
+          "password": "填写自定义密码C"
         },
         {
           "name": "yugogo4",
-          "password": "DD"
+          "password": "填写自定义密码D"
         },
         {
           "name": "yugogo5",
-          "password": "EE"
+          "password": "填写自定义密码E"
         }
       ],
       "handshake": {
