@@ -129,11 +129,11 @@ install_singbox(){
         sed -i "s/填写服务器ip地址/[${v6}]/g" /root/sing-box/client5-tun.json
     fi
     
-    sed -i "s/填写自定义密码A/${ps}/g" /etc/sing-box/config.json
-    sed -i "s/填写自定义密码B/${ps1}/g" /etc/sing-box/config.json
-    sed -i "s/填写自定义密码C/${ps2}/g" /etc/sing-box/config.json
-    sed -i "s/填写自定义密码D/${ps3}/g" /etc/sing-box/config.json
-    sed -i "s/填写自定义密码E/${ps4}/g" /etc/sing-box/config.json
+    sed -i "s!填写自定义密码A!${ps}!g" /etc/sing-box/config.json
+    sed -i "s!填写自定义密码B!${ps1}!g" /etc/sing-box/config.json
+    sed -i "s!填写自定义密码C!${ps2}!g" /etc/sing-box/config.json
+    sed -i "s!填写自定义密码D!${ps3}!g" /etc/sing-box/config.json
+    sed -i "s!填写自定义密码E!${ps4}!g" /etc/sing-box/config.json
     
     sed -i "s/填写自定义密码/${ps}/g" /root/sing-box/client1-sockshttp.json
     sed -i "s/填写自定义密码/${ps1}/g" /root/sing-box/client2-sockshttp.json
