@@ -22,6 +22,38 @@ yellow(){
 ps=$(openssl rand -base64 16)
 ps1=$(openssl rand -base64 16)
 
+# 默认为空密码，用户可以通过参数指定
+PASSWORD=""
+
+# 解析命令行参数
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -p|--password)
+            PASSWORD="$2"
+            shift 2
+            ;;
+        *)
+            echo "未知参数: $1"
+            echo "使用方法: $0 [-p|--password 自定义密码]"
+            exit 1
+            ;;
+    esac
+done
+
+# 如果未提供密码，使用默认值
+if [ -z "$PASSWORD" ]; then
+    PASSWORD="将使用默认密码"  # 替换为原脚本中的默认密码
+    echo "未指定密码，将使用默认密码"
+else
+    echo "将使用自定义密码"
+    ps=$PASSWORD
+    ps1=$PASSWORD
+fi
+
+# 以下是原脚本的其他内容，使用$PASSWORD变量作为密码
+echo "当前使用的密码: $PASSWORD  $ps $ps1"
+
+
 # 判断系统及定义系统安装依赖方式
 REGEX=("debian" "ubuntu" "centos|red hat|kernel|oracle linux|alma|rocky" "'amazon linux'" "fedora")
 RELEASE=("Debian" "Ubuntu" "CentOS" "CentOS" "Fedora")
